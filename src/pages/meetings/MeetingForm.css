@@ -1,0 +1,802 @@
+/* MeetingForm.css */
+
+.meeting-form-page {
+  max-width: 960px;
+}
+
+/* ─── Info card ─── */
+.meeting-form-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  margin-bottom: 1.25rem;
+}
+
+.meeting-form-card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 1.25rem;
+}
+
+.meeting-form-card-title svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--primary-color);
+}
+
+/* ─── Form rows ─── */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-row.single {
+  grid-template-columns: 1fr;
+}
+
+.form-field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.35rem;
+}
+
+.form-field label .required {
+  color: var(--danger-color);
+  margin-left: 2px;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  background: var(--bg-hover);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  border-color: var(--border-focus);
+  background: var(--bg-card);
+}
+
+.form-field input:read-only {
+  background: var(--bg-body);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* Sembunyikan AM/PM pada input time di Chrome/Edge agar selalu 24 jam */
+.form-field input[type="time"]::-webkit-datetime-edit-ampm-field {
+  display: none;
+}
+.form-field input[type="time"] {
+  -webkit-appearance: none;
+}
+
+/* ─── Custom Scrollable Time Picker ─── */
+.tpd-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.tpd-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--bg-hover);
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  box-sizing: border-box;
+  transition: border-color 0.2s, background 0.2s;
+  user-select: none;
+}
+
+.tpd-trigger:hover,
+.tpd-trigger.open {
+  border-color: var(--border-focus);
+  background: var(--bg-card);
+}
+
+.tpd-display {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.tpd-icon {
+  width: 17px;
+  height: 17px;
+  fill: var(--text-light);
+  flex-shrink: 0;
+}
+
+.tpd-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 200;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow-modal);
+  width: 170px;
+  overflow: hidden;
+}
+
+.tpd-cols-wrapper {
+  position: relative;
+  height: 200px; /* 5 items × 40px */
+}
+
+/* Center highlight bar */
+.tpd-highlight {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  right: 12px;
+  height: 40px;
+  transform: translateY(-50%);
+  background: var(--bg-active);
+  border: 1.5px solid var(--border-focus);
+  border-radius: 8px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tpd-cols {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.tpd-col {
+  flex: 1;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.tpd-col::-webkit-scrollbar {
+  display: none;
+}
+
+.tpd-item {
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: color 0.15s;
+  user-select: none;
+}
+
+.tpd-item:hover { color: var(--text-muted); }
+
+.tpd-item.active {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.tpd-sep {
+  width: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 3;
+}
+
+.tpd-footer {
+  padding: 0.5rem 0.75rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tpd-ok-btn {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.35rem 1.1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.tpd-ok-btn:hover { background: var(--primary-hover); }
+
+.form-field-error {
+  font-size: 0.75rem;
+  color: var(--danger-color);
+  margin-top: 0.25rem;
+}
+
+/* ─── Participants card ─── */
+.participants-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--success-color);
+  margin-bottom: 1.25rem;
+}
+
+.participants-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.participants-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.participants-header h3 svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--text-muted);
+}
+
+.add-participant-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--success-color);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.add-participant-btn:hover { background: var(--success-hover, #16a34a); }
+
+.add-participant-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+/* Participant list */
+.participant-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.participant-list.scrollable {
+  max-height: 340px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+/* Custom scrollbar for participant list */
+.participant-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.participant-list::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.participant-list::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+.participant-list::-webkit-scrollbar-thumb:hover {
+  background: var(--text-light);
+}
+
+.participant-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--success-bg);
+  border-radius: 10px;
+  border: 1px solid var(--success-border);
+}
+
+.participant-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--success-color);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.participant-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.participant-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.participant-detail {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.participant-remove-btn {
+  background: none;
+  border: none;
+  color: var(--danger-color);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.participant-remove-btn:hover {
+  color: var(--danger-hover);
+}
+
+.participants-empty {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--text-light);
+  font-size: 0.85rem;
+}
+
+/* ─── Participant Search ─── */
+.participant-search-wrapper {
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+.participant-search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.participant-search-input {
+  width: 100%;
+  padding: 0.6rem 2.5rem 0.6rem 2.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--text-main);
+  background: var(--bg-hover);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.participant-search-input:focus {
+  border-color: var(--success-color);
+  background: var(--bg-card);
+  box-shadow: 0 0 0 3px rgba(34,197,94,.1);
+}
+
+.participant-search-input::placeholder {
+  color: var(--text-light);
+}
+
+.participant-search-clear {
+  position: absolute;
+  right: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.participant-search-clear:hover {
+  color: var(--text-muted);
+  background: var(--bg-active);
+}
+
+/* ─── Footer actions ─── */
+.meeting-form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+.meeting-form-footer button {
+  padding: 0.65rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-cancel {
+  background: var(--bg-card);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+}
+
+.btn-cancel:hover { background: var(--bg-hover); }
+
+.btn-submit {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+}
+
+.btn-submit:hover { background: var(--primary-hover); }
+.btn-submit:disabled { background: var(--text-light); cursor: not-allowed; }
+
+/* ─── Division & Participant Selection Modal ─── */
+.division-modal-box {
+  background: var(--bg-card);
+  border-radius: 14px;
+  max-width: 540px;
+  width: 92%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-modal);
+  overflow: hidden;
+}
+
+.division-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.division-modal-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.division-modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-light);
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.division-modal-close:hover {
+  background: var(--bg-hover);
+  color: var(--text-muted);
+}
+
+/* Search */
+.division-search-wrapper {
+  position: relative;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.division-search-wrapper svg {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  fill: var(--text-light);
+}
+
+.division-search-input {
+  width: 100%;
+  padding: 0.6rem 0.85rem 0.6rem 2.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: var(--text-main);
+  background: var(--bg-hover);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.division-search-input:focus {
+  border-color: var(--primary-color);
+  background: var(--bg-card);
+}
+
+/* Division list */
+.division-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem 0;
+  min-height: 200px;
+  max-height: 420px;
+}
+
+.division-loading {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-light);
+  font-size: 0.875rem;
+}
+
+/* Division section */
+.division-section {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.division-section:last-child {
+  border-bottom: none;
+}
+
+/* Division header */
+.division-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  user-select: none;
+}
+
+.division-header:hover {
+  background: var(--bg-hover);
+}
+
+.division-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.division-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--primary-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.division-title-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.division-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.division-count {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+.division-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Select All label */
+.division-select-all {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.division-select-all input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* Chevron */
+.division-chevron {
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  fill: var(--text-muted);
+}
+
+.division-chevron.expanded {
+  transform: rotate(180deg);
+}
+
+/* Members */
+.division-members {
+  padding: 0 1.5rem 0.5rem 1.5rem;
+}
+
+.division-no-members {
+  padding: 0.5rem 0 0.5rem 2.75rem;
+  color: var(--text-light);
+  font-size: 0.8rem;
+}
+
+.division-member-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-left: 0.5rem;
+}
+
+.division-member-item:hover {
+  background: var(--bg-hover);
+}
+
+.division-member-item.checked {
+  background: var(--primary-bg);
+}
+
+.member-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary-color);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.member-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--primary-color);
+  font-weight: 700;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.member-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.member-name {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-main);
+}
+
+.member-position {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Footer */
+.division-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.5rem;
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-card);
+}
+
+.division-selected-count {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.division-modal-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.division-modal-actions .btn-cancel {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.85rem;
+}
+
+.btn-division-save {
+  background: var(--success-color);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-division-save:hover {
+  background: var(--success-hover, #16a34a);
+}
+
+/* ─── RESPONSIVE ─── */
+@media screen and (max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .participants-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .meeting-form-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .participants-card {
+    padding: 1.25rem 1rem;
+  }
+}

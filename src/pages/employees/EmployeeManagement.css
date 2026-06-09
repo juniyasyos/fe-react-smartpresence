@@ -1,0 +1,429 @@
+/* EmployeeManagement.css */
+
+.emp-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.emp-page-header-text h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 0.25rem;
+}
+
+.emp-page-header-text p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.emp-add-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.emp-add-btn:hover { background: var(--primary-hover); }
+.emp-add-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+.emp-filters {
+  display: grid;
+  grid-template-columns: minmax(200px, 2fr) 1fr 1fr;
+  gap: 1.5rem;
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  margin-bottom: 1.25rem;
+}
+
+@media screen and (max-width: 768px) {
+  .emp-filters { grid-template-columns: 1fr; }
+}
+
+.emp-filter-group label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.emp-filter-input-wrapper {
+  position: relative;
+}
+
+.emp-filter-input-wrapper svg {
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  fill: var(--text-light);
+}
+
+.emp-filter-input-wrapper input, .emp-filter-group select {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: var(--text-main);
+  background: var(--bg-hover);
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.emp-filter-input-wrapper input {
+  padding-left: 2.5rem;
+}
+
+.emp-filter-input-wrapper input:focus, .emp-filter-group select:focus {
+  border-color: var(--border-focus);
+  background: var(--bg-card);
+}
+
+/* Table */
+.emp-table-wrapper {
+  background: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  overflow-x: auto;
+}
+
+.emp-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.emp-table th {
+  text-align: left;
+  padding: 1rem 1.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-bottom: 2px solid var(--border-color);
+  background: var(--bg-hover);
+  white-space: nowrap;
+}
+
+.emp-table td {
+  padding: 1rem 1.25rem;
+  font-size: 0.875rem;
+  color: var(--text-main);
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.emp-table tbody tr:hover { background: var(--bg-hover); }
+.emp-table tbody tr:last-child td { border-bottom: none; }
+
+.emp-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.emp-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--primary-bg);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.emp-info-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+}
+
+.emp-info-cell svg { width: 16px; height: 16px; fill: var(--text-light); }
+
+.emp-action-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.emp-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+  background: none;
+}
+
+.emp-action-btn svg, .emp-action-btn img { width: 32px; height: 32px; object-fit: contain; }
+.emp-action-btn.edit svg { fill: var(--primary-color); }
+.emp-action-btn.del svg { fill: var(--danger-color); }
+
+.emp-action-btn.edit:hover { background: var(--bg-active); }
+.emp-action-btn.del:hover { background: var(--danger-bg); }
+.emp-action-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+/* Pagination */
+.emp-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.825rem;
+  color: var(--text-muted);
+}
+
+.emp-pagination-btns { display: flex; gap: 0.25rem; }
+.emp-pagination-btns button {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--bg-card);
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.emp-pagination-btns button:hover:not(:disabled) { background: var(--bg-hover); }
+.emp-pagination-btns button.active { background: var(--primary-color); color: #fff; border-color: var(--primary-color); }
+.emp-pagination-btns button:disabled { opacity: 0.4; cursor: default; }
+
+.emp-loading, .emp-empty { text-align: center; padding: 3rem 1rem; color: var(--text-light); font-size: 0.9rem; }
+.emp-error { background: var(--danger-bg); border: 1px solid var(--danger-border); color: var(--danger-color); padding: 0.85rem 1.25rem; border-radius: 10px; font-size: 0.875rem; margin-bottom: 1rem; }
+
+/* Modals */
+.emp-modal-overlay {
+  position: fixed; inset: 0; background: var(--overlay-bg);
+  display: flex; align-items: center; justify-content: center; z-index: 2000;
+}
+
+.emp-modal-box {
+  background: var(--bg-card); border-radius: 12px; padding: 0;
+  max-width: 550px; width: 90%; box-shadow: var(--shadow-modal);
+}
+
+.emp-modal-header {
+  padding: 1.5rem 2rem 1rem; display: flex; align-items: flex-start; justify-content: space-between;
+}
+.emp-modal-header h3 { margin: 0 0 0.5rem; font-size: 1.25rem; color: var(--text-main); }
+.emp-modal-header p { margin: 0; color: var(--text-muted); font-size: 0.875rem; }
+.emp-modal-close { background: none; border: none; font-size: 1.5rem; line-height: 1; color: var(--text-light); cursor: pointer; }
+
+.emp-modal-body { padding: 1rem 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
+
+.emp-modal-field label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--primary-color); margin-bottom: 0.4rem; }
+.emp-modal-field label .required { color: var(--danger-color); margin-left: 2px; }
+.emp-modal-field input, .emp-modal-field select {
+  width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.9rem;
+  color: var(--text-main); outline: none; box-sizing: border-box; background: var(--bg-hover);
+}
+.emp-modal-field input:focus, .emp-modal-field select:focus { border-color: var(--border-focus); box-shadow: 0 0 0 3px rgba(59,130,246,.1); background: var(--bg-card); }
+.emp-modal-field-error { color: var(--danger-color); font-size: 0.75rem; margin-top: 0.25rem; }
+
+.emp-modal-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+.emp-modal-footer { padding: 1.25rem 2rem; display: flex; justify-content: flex-end; gap: 0.75rem; }
+.emp-btn-cancel { background: var(--bg-card); color: var(--text-muted); border: 1px solid var(--border-color); padding: 0.65rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; }
+.emp-btn-submit { background: var(--primary-color); color: #fff; border: none; padding: 0.65rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; }
+.emp-btn-danger { background: var(--danger-color); color: #fff; border: none; padding: 0.65rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; }
+
+/* Secondary Button */
+.emp-btn-secondary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.emp-btn-secondary:hover:not(:disabled) {
+  background: var(--bg-hover);
+  border-color: var(--text-light);
+}
+.emp-btn-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ─── RESPONSIVE ─── */
+@media screen and (max-width: 640px) {
+  .emp-modal-row {
+    grid-template-columns: 1fr;
+  }
+
+  .emp-modal-header {
+    padding: 1.25rem 1.25rem 0.75rem;
+  }
+
+  .emp-modal-body {
+    padding: 0.75rem 1.25rem;
+  }
+
+  .emp-modal-footer {
+    padding: 1rem 1.25rem;
+  }
+
+  .emp-page-header {
+    flex-direction: column;
+  }
+}
+
+/* Delete Modal */
+.delete-modal-box {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 440px;
+  width: 90%;
+  box-shadow: var(--shadow-modal);
+}
+.delete-modal-box h3 { margin: 0 0 0.75rem; font-size: 1.15rem; color: var(--text-main); }
+.delete-modal-box p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin: 0 0 1.5rem; }
+.delete-modal-actions { display: flex; justify-content: flex-end; gap: 0.75rem; }
+
+/* ── Signature Upload Area ── */
+.emp-signature-area {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-hover);
+  min-height: 80px;
+}
+
+.emp-signature-upload-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  min-height: 80px;
+  background: var(--bg-body);
+  border: none;
+  border-right: 1px solid var(--border-color);
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.emp-signature-upload-btn:hover {
+  background: var(--bg-hover);
+  color: var(--primary-color);
+}
+
+.emp-signature-preview {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  position: relative;
+  min-height: 80px;
+  background: var(--bg-card);
+}
+
+.emp-signature-preview img {
+  max-height: 70px;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.emp-signature-placeholder {
+  color: var(--text-light);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.emp-signature-remove-btn {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: var(--danger-color);
+  color: #fff;
+  font-size: 0.7rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background 0.15s;
+}
+
+.emp-signature-remove-btn:hover {
+  background: var(--danger-hover);
+}
+
+/* Table signature cell - uniform sizing */
+.emp-table-signature-cell {
+  width: 80px;
+  height: 44px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.emp-table-signature {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+}
+
+.emp-table-signature-fallback {
+  color: var(--text-light);
+  font-size: 0.8rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /dashboard/
+Disallow: /laporan/
+Disallow: /employees/
+Disallow: /meetings/
+Disallow: /rooms/
+Disallow: /users/
+Disallow: /work-units/
+Allow: /

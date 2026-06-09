@@ -1,0 +1,659 @@
+/* MeetingDetail.css */
+
+.meeting-detail-page {
+  max-width: 960px;
+}
+
+/* ─── Stat counters top right ─── */
+.attendance-counters {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.attendance-counter {
+  text-align: center;
+}
+
+.attendance-counter-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  display: block;
+}
+
+.attendance-counter-value.hadir { color: var(--success-color); }
+.attendance-counter-value.terlambat { color: var(--warning-color); }
+.attendance-counter-value.tidak-hadir { color: var(--danger-color); }
+
+.attendance-counter-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* ─── Info card (read-only) ─── */
+.detail-info-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  margin-bottom: 1.25rem;
+}
+
+.detail-info-card h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 1.25rem;
+}
+
+.detail-info-card h2 svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--primary-color);
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.detail-row.single {
+  grid-template-columns: 1fr;
+}
+
+.detail-field label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+.detail-field-value {
+  padding: 0.6rem 0.85rem;
+  background: var(--bg-hover);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  min-height: 38px;
+}
+
+/* ─── Participants attendance card ─── */
+.attendance-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--success-color);
+  margin-bottom: 1.25rem;
+}
+
+.attendance-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.attendance-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.attendance-header h3 svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--text-muted);
+}
+
+.scan-barcode-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.scan-barcode-btn:hover { background: var(--primary-hover); }
+
+.scan-barcode-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* Participant attendance list */
+.attendance-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.attendance-list.scrollable {
+  max-height: 340px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+/* Custom scrollbar for attendance list */
+.attendance-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.attendance-list::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.attendance-list::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+.attendance-list::-webkit-scrollbar-thumb:hover {
+  background: var(--text-light);
+}
+
+/* ─── Attendance Search ─── */
+.attendance-search-wrapper {
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+.attendance-search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.attendance-search-input {
+  width: 100%;
+  padding: 0.6rem 2.5rem 0.6rem 2.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--text-main);
+  background: var(--bg-hover);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.attendance-search-input:focus {
+  border-color: var(--success-color);
+  background: var(--bg-card);
+  box-shadow: 0 0 0 3px rgba(34,197,94,.1);
+}
+
+.attendance-search-input::placeholder {
+  color: var(--text-light);
+}
+
+.attendance-search-clear {
+  position: absolute;
+  right: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.attendance-search-clear:hover {
+  color: var(--text-muted);
+  background: var(--bg-active);
+}
+
+.attendance-empty {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--text-light);
+  font-size: 0.85rem;
+}
+
+.attendance-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--success-bg);
+  border-radius: 10px;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.attendance-item.absent {
+  background: var(--warning-bg);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.attendance-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--success-color);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.attendance-item.absent .attendance-avatar {
+  background: var(--warning-color);
+}
+
+.attendance-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.attendance-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.attendance-subtext {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ─── Attendance time column ─── */
+.attendance-time {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+  min-width: 70px;
+}
+
+.attendance-time svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--text-light);
+  flex-shrink: 0;
+}
+
+/* ─── Attendance dropdown ─── */
+.attendance-dropdown-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.attendance-dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.attendance-dropdown-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.attendance-dropdown-btn .dropdown-chevron {
+  width: 18px;
+  height: 18px;
+  margin-left: 0.1rem;
+  opacity: 0.7;
+}
+
+.attendance-dropdown-btn.hadir {
+  background: var(--success-bg);
+  color: var(--success-color);
+}
+
+.attendance-dropdown-btn.hadir:hover {
+  background: rgba(34, 197, 94, 0.2);
+}
+
+.attendance-dropdown-btn.tidak-hadir {
+  background: var(--danger-bg);
+  color: var(--danger-color);
+}
+
+.attendance-dropdown-btn.tidak-hadir:hover {
+  background: rgba(220, 38, 38, 0.2);
+}
+
+/* Badge status (read-only) untuk role Admin */
+.status-badge-simple {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-badge-simple.hadir {
+  background: var(--success-bg);
+  color: var(--success-color);
+}
+
+.status-badge-simple.tidak-hadir {
+  background: var(--danger-bg);
+  color: var(--danger-color);
+}
+
+
+/* ─── Dropdown menu ─── */
+.attendance-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: var(--shadow-modal);
+  z-index: 50;
+  min-width: 160px;
+  overflow: hidden;
+  animation: dropdownFadeIn 0.15s ease;
+}
+
+@keyframes dropdownFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: none;
+  background: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.dropdown-option svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.dropdown-option.hadir {
+  color: var(--success-color);
+}
+
+.dropdown-option.hadir:hover {
+  background: var(--success-bg);
+}
+
+.dropdown-option.hadir.active {
+  background: rgba(34, 197, 94, 0.2);
+}
+
+.dropdown-option.tidak-hadir {
+  color: var(--danger-color);
+}
+
+.dropdown-option.tidak-hadir:hover {
+  background: var(--danger-bg);
+}
+
+.dropdown-option.tidak-hadir.active {
+  background: rgba(220, 38, 38, 0.2);
+}
+
+/* ─── Scan modal (Circular Animation Design) ─── */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--overlay-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-boxscan {
+  background: var(--bg-card);
+  width: 90%;
+  max-width: 480px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  padding: 2.5rem 1.5rem;
+  position: relative;
+  box-shadow: var(--shadow-modal);
+}
+
+.modal-close-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.modal-close-icon:hover {
+  background: var(--bg-hover);
+}
+
+.modal-close-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.modal-title {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.modal-subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  line-height: 1.4;
+}
+
+.scan-body {
+  width: 100%;
+  min-height: 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.scan-state-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.scan-status-img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+}
+
+.scan-status-img.idle-img {
+  width: 160px;
+  height: 160px;
+}
+
+.scan-status-title {
+  color: var(--text-main);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.scan-status-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+  max-width: 85%;
+}
+
+.scan-status-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--success-color);
+  margin-bottom: 0.5rem;
+}
+
+.scan-employee-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+}
+
+.scan-status-result {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.scan-error-msg {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.green { color: var(--success-color); }
+.blue { color: var(--primary-color); }
+.red { color: var(--danger-color); }
+
+.scan-status-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  color: var(--text-main);
+}
+
+.scan-status-indicator .dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.scan-close-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.75rem 4rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.scan-close-btn:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-focus);
+}
+
+.scan-hidden-input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  top: 0;
+  left: 0;
+  border: none;
+  outline: none;
+}
+
+/* ─── Footer ─── */
+.detail-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+.detail-footer button {
+  padding: 0.65rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+/* ─── RESPONSIVE ─── */
+@media screen and (max-width: 640px) {
+  .detail-row { grid-template-columns: 1fr; }
+  .attendance-header { flex-direction: column; align-items: flex-start; }
+  .attendance-counters { gap: 1rem; }
+  .detail-info-card, .attendance-card { padding: 1.25rem 1rem; }
+  .modal-boxscan { padding: 2rem 1.25rem; }
+}

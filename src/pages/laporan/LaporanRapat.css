@@ -1,0 +1,68 @@
+.laporan-page{display:flex;flex-direction:column;gap:1.25rem}
+.laporan-page-header h1{font-size:1.75rem;font-weight:700;color:var(--text-main);margin:0}
+.laporan-page-header p{color:var(--text-muted);margin:.25rem 0 0;font-size:.9rem}
+.laporan-filter{background:var(--bg-card);border-radius:12px;padding:1.25rem 1.5rem;box-shadow:var(--shadow-sm);border:1px solid var(--border-color)}
+.laporan-filter-title{display:flex;align-items:center;gap:6px;font-size:.85rem;font-weight:600;color:var(--text-muted);margin-bottom:.75rem}
+.laporan-filter-title svg{width:16px;height:16px;fill:var(--text-muted)}
+.laporan-filter-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem;align-items:end}
+.laporan-filter-group{display:flex;flex-direction:column;gap:.35rem}
+.laporan-filter-group label{font-size:.8rem;color:var(--text-muted);font-weight:500}
+.laporan-filter-group input,.laporan-filter-group select{padding:.6rem .75rem;border:1px solid var(--border-color);border-radius:8px;font-size:.875rem;color:var(--text-main);background:var(--bg-hover);outline:none;transition:border-color .15s}
+.laporan-filter-group input:focus,.laporan-filter-group select:focus{border-color:var(--border-focus);background:var(--bg-card)}
+.search-input-wrap{position:relative}
+.search-input-wrap svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:16px;height:16px;fill:var(--text-light)}
+.search-input-wrap input{padding-left:2.25rem;width:100%;box-sizing:border-box}
+.laporan-table-wrap{background:var(--bg-card);border-radius:12px;box-shadow:var(--shadow-sm);border:1px solid var(--border-color);overflow-x:auto}
+.laporan-table{width:100%;border-collapse:collapse;min-width:800px}
+.laporan-table th{text-align:left;padding:.85rem 1rem;font-size:.8rem;font-weight:600;color:var(--text-muted);border-bottom:2px solid var(--border-color);white-space:nowrap}
+.laporan-table td{padding:.85rem 1rem;font-size:.875rem;color:var(--text-main);border-bottom:1px solid var(--border-color);vertical-align:middle}
+.laporan-table tbody tr{transition:background .1s}
+.laporan-table tbody tr:hover{background:var(--bg-hover)}
+.laporan-title-cell{display:flex;flex-direction:column;gap:2px}
+.laporan-title-main{font-weight:600;color:var(--text-main)}
+.laporan-title-sub{font-size:.78rem;color:var(--text-muted)}
+.laporan-lampiran{display:flex;flex-direction:column;gap:3px;font-size:.78rem}
+.laporan-lampiran-item{display:flex;align-items:center;gap:5px}
+.ind-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.ind-dot.green{background:var(--success-color)}.ind-dot.red{background:var(--danger-color)}
+.laporan-status{display:inline-block;font-size:.75rem;font-weight:600;padding:.2rem .65rem;border-radius:999px;white-space:nowrap}
+.laporan-status.selesai{background:var(--success-bg);color:var(--success-color)}
+.laporan-status.berlangsung{background:var(--success-bg);color:var(--success-color)}
+.laporan-status.menunggu{background:var(--bg-hover);color:var(--text-muted)}
+.laporan-status.dibatalkan{background:var(--danger-bg);color:var(--danger-color)}
+.laporan-actions{display:flex;gap:.5rem}
+.laporan-action-btn{width:40px;height:40px;border-radius:8px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity .15s,transform .1s;background:none}
+.laporan-action-btn:hover{opacity:.85;transform:scale(1.05)}
+.laporan-action-btn svg,.laporan-action-btn img{width:32px;height:32px;object-fit:contain}
+.laporan-action-btn.view{background:none}
+.laporan-action-btn.download{background:none}
+.laporan-pagination{display:flex;justify-content:center;align-items:center;gap:.5rem;padding:1rem 0}
+.laporan-pagination button{padding:.45rem .85rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-card);color:var(--text-muted);font-size:.8rem;cursor:pointer;transition:all .15s}
+.laporan-pagination button:hover:not(:disabled){background:var(--bg-hover)}
+.laporan-pagination button:disabled{opacity:.4;cursor:not-allowed}
+.laporan-pagination button.active{background:var(--primary-color);color:#fff;border-color:var(--primary-color)}
+.laporan-empty{text-align:center;padding:3rem 1rem;color:var(--text-light);font-size:.95rem}
+.laporan-loading{display:flex;align-items:center;justify-content:center;gap:.75rem;padding:4rem 0;color:var(--text-muted)}
+.laporan-loading-spinner{width:24px;height:24px;border:3px solid var(--border-color);border-top-color:var(--primary-color);border-radius:50%;animation:lrSpin .6s linear infinite}
+@keyframes lrSpin{to{transform:rotate(360deg)}}
+@media(max-width:768px){.laporan-filter-row{grid-template-columns:1fr}.laporan-table{min-width:650px}}
+
+/* Export Modal Styles */
+.lap-modal-overlay{position:fixed;inset:0;background:var(--overlay-bg);display:flex;align-items:center;justify-content:center;z-index:1000;animation:ldFade .2s}
+@keyframes ldFade{from{opacity:0}to{opacity:1}}
+.lap-modal{background:var(--bg-card);border-radius:14px;padding:1.75rem;width:100%;max-width:440px;box-shadow:var(--shadow-modal);position:relative}
+.lap-modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;cursor:pointer;color:var(--text-light)}
+.lap-modal-close:hover{color:var(--text-main)}
+.lap-modal-close svg{width:20px;height:20px;fill:currentColor}
+.lap-modal h3{font-size:1.15rem;font-weight:700;color:var(--primary-color);margin:0 0 .25rem}
+.lap-modal p{color:var(--text-muted);font-size:.85rem;margin:0 0 1.25rem}
+.lap-modal-option{display:flex;align-items:center;gap:.75rem;padding:.85rem 0;border-bottom:1px solid var(--border-color);font-size:.9rem;color:var(--text-main);cursor:pointer}
+.lap-modal-option:last-child{border-bottom:none}
+.lap-modal-option input[type="checkbox"]{width:18px;height:18px;accent-color:var(--primary-color)}
+.lap-modal-footer{display:flex;justify-content:flex-end;gap:.75rem;margin-top:1.25rem}
+.lap-export-btn{display:flex;align-items:center;gap:6px;background:var(--success-color);color:#fff;border:none;border-radius:8px;padding:.6rem 1.25rem;font-size:.85rem;font-weight:600;cursor:pointer;transition:background .15s}
+.lap-export-btn:hover{opacity:0.9}
+.lap-export-btn:disabled{opacity:0.5;cursor:not-allowed}
+.lap-export-btn svg{width:18px;height:18px;fill:currentColor}
+.lap-btn-cancel{background:none;border:1px solid var(--border-color);color:var(--text-muted);padding:.6rem 1.25rem;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .15s}
+.lap-btn-cancel:hover{background:var(--bg-hover);color:var(--text-main)}

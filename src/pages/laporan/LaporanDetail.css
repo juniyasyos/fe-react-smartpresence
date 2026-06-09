@@ -1,0 +1,434 @@
+.lap-detail{display:flex;flex-direction:column;gap:1.25rem;padding-bottom:5rem}
+.lap-back{display:inline-flex;align-items:center;gap:6px;color:var(--primary-color);font-weight:600;font-size:.9rem;cursor:pointer;background:none;border:none;padding:0;transition:color .15s}
+.lap-back:hover{color:var(--primary-hover)}
+.lap-back svg{width:18px;height:18px;fill:currentColor}
+.lap-header-card{background:var(--bg-card);border-radius:12px;padding:1.5rem;box-shadow:var(--shadow-sm);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.lap-header-left{display:flex;align-items:center;gap:1rem}
+.lap-header-icon{width:48px;height:48px;border-radius:12px;background:var(--danger-bg);display:flex;align-items:center;justify-content:center}
+.lap-header-icon svg{width:24px;height:24px;fill:var(--danger-color)}
+.lap-header-text h1{font-size:1.35rem;font-weight:700;color:var(--text-main);margin:0}
+.lap-header-status{font-size:.75rem;font-weight:600;padding:.2rem .65rem;border-radius:999px;margin-top:4px;display:inline-block}
+.lap-header-status.selesai{background:var(--success-bg);color:var(--success-color)}
+.lap-header-status.berlangsung{background:var(--success-bg);color:var(--success-color)}
+.lap-header-status.menunggu{background:var(--bg-hover);color:var(--text-muted)}
+.lap-header-status.dibatalkan{background:var(--danger-bg);color:var(--danger-color)}
+.lap-export-btn{display:flex;align-items:center;gap:6px;background:var(--success-color);color:#fff;border:none;border-radius:8px;padding:.6rem 1.25rem;font-size:.85rem;font-weight:600;cursor:pointer;transition:background .15s}
+.lap-export-btn:hover{opacity:0.9}
+.lap-export-btn svg{width:18px;height:18px;fill:currentColor}
+.lap-info-badges{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.lap-info-badge{background:var(--bg-card);border-radius:12px;padding:1rem 1.25rem;box-shadow:var(--shadow-sm);display:flex;align-items:center;gap:.75rem}
+.lap-info-badge-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.lap-info-badge-icon.blue{background:var(--primary-bg)}.lap-info-badge-icon.orange{background:var(--success-bg)}.lap-info-badge-icon.green{background:var(--success-bg)}
+.lap-info-badge-icon svg{width:20px;height:20px}
+.lap-info-badge-icon.blue svg{fill:var(--primary-color)}.lap-info-badge-icon.orange svg{fill:var(--success-color)}.lap-info-badge-icon.green svg{fill:var(--success-color)}
+.lap-info-badge-label{font-size:.75rem;color:var(--text-muted)}
+.lap-info-badge-value{font-size:.95rem;font-weight:600;color:var(--text-main)}
+.lap-section{background:var(--bg-card);border-radius:12px;padding:1.5rem;box-shadow:var(--shadow-sm)}
+.lap-section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+.lap-section-header h2{font-size:1.1rem;font-weight:700;color:var(--text-main);margin:0}
+.lap-info-table{width:100%;border-collapse:collapse}
+.lap-info-table td{padding:.6rem 0;font-size:.9rem;border-bottom:1px solid var(--border-color)}
+.lap-info-table td:first-child{color:var(--text-muted);width:180px;font-weight:500}
+.lap-info-table td:last-child{color:var(--text-main);font-weight:500}
+.lap-info-table .text-green{color:var(--success-color);font-weight:600}
+.lap-info-table .text-red{color:var(--danger-color);font-weight:600}
+.lap-upload-btn{display:flex;align-items:center;gap:6px;background:none;border:1px solid var(--border-color);border-radius:8px;padding:.45rem .85rem;font-size:.8rem;font-weight:500;color:var(--text-muted);cursor:pointer;transition:all .15s}
+.lap-upload-btn:hover{border-color:var(--primary-color);color:var(--primary-color)}
+.lap-upload-btn svg{width:16px;height:16px;fill:currentColor}
+.lap-upload-btn input{display:none}
+.lap-doc-item{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1rem;background:var(--bg-hover);border-radius:10px;margin-bottom:.5rem}
+.lap-doc-info{display:flex;align-items:center;gap:.75rem}
+.lap-doc-icon{width:40px;height:40px;border-radius:8px;background:var(--primary-bg);display:flex;align-items:center;justify-content:center}
+.lap-doc-icon svg{width:20px;height:20px;fill:var(--primary-color)}
+.lap-doc-name{font-weight:600;font-size:.875rem;color:var(--text-main)}
+.lap-doc-meta{font-size:.75rem;color:var(--text-muted)}
+.lap-doc-actions{display:flex;gap:.5rem}
+.lap-doc-action-btn{width:36px;height:36px;border:none;border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity .15s;text-decoration:none;background:none}
+.lap-doc-action-btn:hover{opacity:.8}
+.lap-doc-action-btn svg,.lap-doc-action-btn img{width:28px;height:28px;object-fit:contain}
+.lap-doc-action-btn.download{background:none}
+.lap-doc-action-btn.delete{background:none}
+.lap-attendance-table{width:100%;border-collapse:collapse}
+.lap-attendance-table th{text-align:left;padding:.7rem .75rem;font-size:.8rem;font-weight:600;color:var(--text-muted);border-bottom:2px solid var(--border-color)}
+.lap-attendance-table td{padding:.7rem .75rem;font-size:.875rem;color:var(--text-main);border-bottom:1px solid var(--border-color);vertical-align:middle}
+.lap-sig-box{display:inline-block;padding:.3rem .75rem;border:1px solid var(--primary-color);border-radius:6px;color:var(--primary-color);font-size:.8rem;font-weight:500;font-style:italic}
+.lap-quill-wrap{border:1px solid var(--border-color);border-radius:10px;overflow:hidden}
+.lap-quill-wrap .ql-toolbar{border:none;border-bottom:1px solid var(--border-color);background:var(--bg-hover)}
+.lap-quill-wrap .ql-container{border:none;font-family:'Times New Roman', Times, serif;font-size:12px;min-height:250px}
+.lap-quill-wrap .ql-editor{min-height:250px;padding:1rem;color:var(--text-main);font-family:'Times New Roman', Times, serif;font-size:12px}
+.lap-quill-wrap .ql-editor img{max-width:100%;border-radius:8px}
+.lap-ttd-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.lap-ttd-group label{display:block;font-size:.85rem;font-weight:600;color:var(--primary-color);margin-bottom:.5rem}
+.lap-ttd-group .required{color:var(--danger-color)}
+.lap-ttd-group input{width:100%;padding:.6rem .75rem;border:1px solid var(--border-color);border-radius:8px;font-size:.875rem;color:var(--text-main);background:var(--bg-hover);outline:none;box-sizing:border-box;transition:border-color .15s}
+.lap-ttd-group input:focus{border-color:var(--primary-color);background:var(--bg-card)}
+.lap-bottom-bar{position:fixed;bottom:0;left:0;right:0;background:var(--bg-card);border-top:1px solid var(--border-color);padding:.75rem 1.5rem;display:flex;justify-content:flex-end;gap:.75rem;z-index:100;box-shadow:0 -2px 8px rgba(0,0,0,.06)}
+.lap-btn-cancel{padding:.6rem 1.25rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-card);color:var(--text-muted);font-size:.875rem;font-weight:500;cursor:pointer;transition:all .15s}
+.lap-btn-cancel:hover{border-color:var(--text-light)}
+.lap-btn-save{display:flex;align-items:center;gap:6px;padding:.6rem 1.25rem;border:none;border-radius:8px;background:var(--primary-color);color:#fff;font-size:.875rem;font-weight:600;cursor:pointer;transition:background .15s}
+.lap-btn-save:hover{background:var(--primary-hover)}
+.lap-btn-save:disabled{opacity:.5;cursor:not-allowed}
+.lap-btn-save svg{width:16px;height:16px;fill:currentColor}
+.lap-toast{position:fixed;top:1.5rem;right:1.5rem;background:var(--success-color);color:#fff;padding:.85rem 1.5rem;border-radius:10px;font-size:.9rem;font-weight:600;box-shadow:var(--shadow-md);z-index:9999;animation:toastIn .3s ease;display:flex;align-items:center;gap:8px}
+.lap-toast svg{width:20px;height:20px;fill:currentColor}
+@keyframes toastIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+.lap-modal-overlay{position:fixed;inset:0;background:var(--overlay-bg);display:flex;align-items:center;justify-content:center;z-index:1000;animation:ldFade .2s}
+@keyframes ldFade{from{opacity:0}to{opacity:1}}
+.lap-modal{background:var(--bg-card);border-radius:14px;padding:1.75rem;width:100%;max-width:440px;box-shadow:var(--shadow-modal);position:relative}
+.lap-modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;cursor:pointer;color:var(--text-light)}
+.lap-modal-close:hover{color:var(--text-main)}
+.lap-modal-close svg{width:20px;height:20px;fill:currentColor}
+.lap-modal h3{font-size:1.15rem;font-weight:700;color:var(--primary-color);margin:0 0 .25rem}
+.lap-modal p{color:var(--text-muted);font-size:.85rem;margin:0 0 1.25rem}
+.lap-modal-option{display:flex;align-items:center;gap:.75rem;padding:.85rem 0;border-bottom:1px solid var(--border-color);font-size:.9rem;color:var(--text-main);cursor:pointer}
+.lap-modal-option:last-child{border-bottom:none}
+.lap-modal-option input[type="checkbox"]{width:18px;height:18px;accent-color:var(--primary-color)}
+.lap-modal-footer{display:flex;justify-content:flex-end;gap:.75rem;margin-top:1.25rem}
+.lap-section-meta{font-size:.78rem;color:var(--text-light);font-weight:500}
+.lap-detail-loading{display:flex;align-items:center;justify-content:center;gap:.75rem;padding:4rem 0;color:var(--text-muted)}
+.lap-detail-spinner{width:24px;height:24px;border:3px solid var(--border-color);border-top-color:var(--primary-color);border-radius:50%;animation:ldSpin .6s linear infinite}
+@keyframes ldSpin{to{transform:rotate(360deg)}}
+@media(max-width:768px){.lap-info-badges{grid-template-columns:1fr}.lap-header-card{flex-direction:column;align-items:flex-start}.lap-ttd-row{grid-template-columns:1fr}}
+
+/* Searchable Select Custom UI */
+.lap-searchable-select { position: relative; margin-bottom: 0; }
+.lap-searchable-select label { display: block; font-size: .85rem; font-weight: 600; color: var(--primary-color); margin-bottom: .5rem; }
+.lap-searchable-select .required { color: var(--danger-color); }
+.lap-select-trigger { display: flex; align-items: center; justify-content: space-between; padding: .6rem .75rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-card); cursor: pointer; transition: all .15s; }
+.lap-select-trigger.open { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+.lap-select-trigger .placeholder { color: var(--text-main); font-size: .875rem; font-weight: 500; }
+.lap-select-trigger .has-value { color: var(--text-main); font-size: .875rem; font-weight: 500; }
+.lap-select-dropdown { position: absolute; top: 100%; left: 0; right: 0; margin-top: .35rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; box-shadow: var(--shadow-sm); z-index: 50; overflow: hidden; display: flex; flex-direction: column; }
+.lap-select-search-input { width: 100%; padding: .65rem .75rem; border: none; border-bottom: 1px solid var(--border-color); font-size: .875rem; color: var(--text-main); outline: none; background: var(--bg-hover); box-sizing: border-box; }
+.lap-select-search-input:focus { background: var(--bg-card); }
+.lap-select-options { max-height: 200px; overflow-y: auto; }
+.lap-select-option { padding: .55rem .75rem; font-size: .875rem; color: var(--text-main); cursor: pointer; transition: background .15s; border-bottom: 1px solid var(--border-color); }
+.lap-select-option:last-child { border-bottom: none; }
+.lap-select-option:hover { background: var(--bg-hover); color: var(--primary-color); }
+.lap-select-empty { padding: .75rem; font-size: .85rem; color: var(--text-light); text-align: center; font-style: italic; }
+
+/* Disabled state for Super Admin */
+.lap-select-trigger.disabled { background: var(--bg-hover) !important; cursor: not-allowed !important; opacity: 0.7; }
+.lap-searchable-select.disabled label { color: var(--text-light); }
+.ql-container.ql-disabled { background: var(--bg-hover); cursor: not-allowed; }
+.ql-editor[contenteditable="false"] { color: var(--text-light); }
+
+/* Notulensi Editor Tools (Templates & Table Controls) */
+.lap-editor-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1rem;
+  background-color: var(--bg-hover);
+  border: 1px solid var(--border-color);
+  border-radius: 8px 8px 0 0;
+  border-bottom: none;
+  align-items: center;
+}
+
+.lap-tools-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.lap-tools-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-right: 0.25rem;
+}
+
+.lap-tool-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lap-tool-btn:hover {
+  background-color: var(--primary-bg);
+  color: var(--primary-color);
+  border-color: var(--border-focus);
+}
+
+.lap-tool-btn.template-btn {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border-color: var(--primary-color);
+}
+
+.lap-tool-btn.template-btn:hover {
+  background-color: var(--primary-hover);
+  color: #ffffff;
+}
+
+.lap-tool-btn.danger {
+  color: var(--danger-color);
+  border-color: var(--border-color);
+}
+
+.lap-tool-btn.danger:hover {
+  background-color: var(--danger-bg);
+  border-color: var(--danger-color);
+  color: var(--danger-color);
+}
+
+/* Adjust the editor wrap border-radius when tools are present */
+.lap-editor-tools + .lap-quill-wrap .ql-toolbar {
+  border-radius: 0 !important;
+}
+
+/* Custom font styles in Quill dropdowns */
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="times-new-roman"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="times-new-roman"]::before {
+  content: 'Times New Roman';
+  font-family: 'Times New Roman', Times, serif;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="arial"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="arial"]::before {
+  content: 'Arial';
+  font-family: Arial, sans-serif;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="courier-new"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="courier-new"]::before {
+  content: 'Courier New';
+  font-family: 'Courier New', Courier, monospace;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="inter"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="inter"]::before {
+  content: 'Inter';
+  font-family: Inter, sans-serif;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="georgia"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="georgia"]::before {
+  content: 'Georgia';
+  font-family: Georgia, serif;
+}
+
+/* Fallback label when default is selected */
+.ql-snow .ql-picker.ql-font .ql-picker-label::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item::before {
+  content: 'Times New Roman';
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Custom font size labels in dropdown */
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="10px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="10px"]::before { content: '10px'; }
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="12px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="12px"]::before { content: '12px'; }
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="14px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="14px"]::before { content: '14px'; }
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="16px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="16px"]::before { content: '16px'; }
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="18px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="18px"]::before { content: '18px'; }
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="20px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="20px"]::before { content: '20px'; }
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="24px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="24px"]::before { content: '24px'; }
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="32px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="32px"]::before { content: '32px'; }
+
+/* Fallback label when default is selected */
+.ql-snow .ql-picker.ql-size .ql-picker-label::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item::before {
+  content: '12px';
+}
+
+/* Customize font picker width to prevent Times New Roman label wrapping */
+.ql-snow .ql-picker.ql-font {
+  width: 140px !important;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label {
+  padding-right: 18px !important;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label::before {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: inline-block !important;
+  width: calc(100% - 12px) !important;
+  text-align: left !important;
+}
+
+/* Customize size picker width */
+.ql-snow .ql-picker.ql-size {
+  width: 70px !important;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label {
+  padding-right: 18px !important;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label::before {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: inline-block !important;
+  width: calc(100% - 12px) !important;
+  text-align: left !important;
+}
+
+/* Map the font values to actual display in the editor panel & PDF export */
+.ql-editor [style*="font-family: times-new-roman"],
+.pdf-export-container [style*="font-family: times-new-roman"] {
+  font-family: 'Times New Roman', Times, serif !important;
+}
+.ql-editor [style*="font-family: arial"],
+.pdf-export-container [style*="font-family: arial"] {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+.ql-editor [style*="font-family: courier-new"],
+.pdf-export-container [style*="font-family: courier-new"] {
+  font-family: 'Courier New', Courier, monospace !important;
+}
+.ql-editor [style*="font-family: inter"],
+.pdf-export-container [style*="font-family: inter"] {
+  font-family: Inter, sans-serif !important;
+}
+.ql-editor [style*="font-family: georgia"],
+.pdf-export-container [style*="font-family: georgia"] {
+  font-family: Georgia, serif !important;
+}
+
+/* Theme-aware Table styling in editor container */
+.ql-editor table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 15px 0 !important;
+  font-family: inherit;
+}
+.ql-editor table td {
+  border: 1px solid var(--border-color) !important;
+  padding: 8px 10px !important;
+  min-height: 2em;
+  color: var(--text-main) !important;
+  background-color: var(--bg-card) !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+}
+.ql-editor table thead tr th,
+.ql-editor table thead tr td {
+  font-weight: bold !important;
+  text-align: center !important;
+  color: var(--text-main) !important;
+}
+
+/* Quantity queries for column widths (applies to all rows in Editor & PDF Export) */
+/* 3 columns (NO: 8%, PEMBAHASAN: 46%, PENYELESAIAN: 46%) */
+.ql-editor table tr td:first-child:nth-last-child(3),
+.pdf-export-container table tr td:first-child:nth-last-child(3) {
+  width: 8% !important;
+}
+.ql-editor table tr td:nth-child(2):nth-last-child(2),
+.pdf-export-container table tr td:nth-child(2):nth-last-child(2) {
+  width: 46% !important;
+}
+.ql-editor table tr td:nth-child(3):nth-last-child(1),
+.pdf-export-container table tr td:nth-child(3):nth-last-child(1) {
+  width: 46% !important;
+}
+
+/* 4 columns (NO: 8%, PEMBAHASAN: 42%, PIC: 15%, PENYELESAIAN: 35%) */
+.ql-editor table tr td:first-child:nth-last-child(4),
+.pdf-export-container table tr td:first-child:nth-last-child(4) {
+  width: 8% !important;
+}
+.ql-editor table tr td:nth-child(2):nth-last-child(3),
+.pdf-export-container table tr td:nth-child(2):nth-last-child(3) {
+  width: 42% !important;
+}
+.ql-editor table tr td:nth-child(3):nth-last-child(2),
+.pdf-export-container table tr td:nth-child(3):nth-last-child(2) {
+  width: 15% !important;
+}
+.ql-editor table tr td:nth-child(4):nth-last-child(1),
+.pdf-export-container table tr td:nth-child(4):nth-last-child(1) {
+  width: 35% !important;
+}
+
+/* Alignments: Header cells (always centered, bold) */
+.ql-editor table thead tr th,
+.ql-editor table thead tr td,
+.pdf-export-container table thead tr th,
+.pdf-export-container table thead tr td {
+  font-weight: 600 !important;
+  text-align: center !important;
+}
+
+/* Alignments: Body cells */
+/* Column 1 (NO): Center-aligned */
+.ql-editor table tbody tr td:first-child,
+.pdf-export-container table tbody tr td:first-child {
+  text-align: center !important;
+}
+/* Column 2 (PEMBAHASAN): Left-aligned */
+.ql-editor table tbody tr td:nth-child(2),
+.pdf-export-container table tbody tr td:nth-child(2) {
+  text-align: left !important;
+}
+/* Column 3 in 4-column table (PIC): Center-aligned */
+.ql-editor table tbody tr td:nth-child(3):nth-last-child(2),
+.pdf-export-container table tbody tr td:nth-child(3):nth-last-child(2) {
+  text-align: center !important;
+}
+/* Column 3 in 3-column table (PENYELESAIAN): Left-aligned */
+.ql-editor table tbody tr td:nth-child(3):nth-last-child(1),
+.pdf-export-container table tbody tr td:nth-child(3):nth-last-child(1) {
+  text-align: left !important;
+}
+/* Column 4 in 4-column table (PENYELESAIAN): Left-aligned */
+.ql-editor table tbody tr td:nth-child(4),
+.pdf-export-container table tbody tr td:nth-child(4) {
+  text-align: left !important;
+}
+
+/* Styling for PDF Export (always white background, black text, grey borders) */
+.pdf-export-container {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+.pdf-export-container ul {
+  list-style-type: none !important;
+  padding-left: 15px !important;
+  margin-top: 4px !important;
+  margin-bottom: 4px !important;
+}
+.pdf-export-container ul li {
+  position: relative !important;
+}
+.pdf-export-container ul li::before {
+  content: "- " !important;
+  position: absolute !important;
+  left: -12px !important;
+  top: 0 !important;
+}
+.pdf-export-container table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 15px 0 !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+.pdf-export-container table td {
+  border: 1px solid #000000 !important; /* Black border like MS Word */
+  padding: 8px 10px !important;
+  color: #000000 !important;
+  background-color: #ffffff !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+}
+.pdf-export-container table thead tr th,
+.pdf-export-container table thead tr td {
+  font-weight: 600 !important;
+  text-align: center !important;
+  color: #000000 !important;
+}

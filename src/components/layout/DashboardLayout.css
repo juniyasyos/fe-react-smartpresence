@@ -1,0 +1,32 @@
+/* DashboardLayout.css */
+
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-main);
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll on the entire layout */
+}
+
+.dashboard-layout-content {
+  flex: 1;
+  min-width: 0; /* Critical for flex children to be able to shrink below their content size */
+  width: 100%;
+  margin-left: 240px;
+  padding: 1.5rem 2rem;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* ─── RESPONSIVE ─── */
+@media screen and (max-width: 768px) {
+  .dashboard-layout-content {
+    margin-left: 0;
+    padding: 4.5rem 1rem 1.5rem; /* top padding for hamburger */
+  }
+
+  .dashboard-layout.sidebar-collapsed .dashboard-layout-content {
+    margin-left: 0;
+  }
+}
