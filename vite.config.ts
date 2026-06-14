@@ -31,7 +31,7 @@ export default defineConfig({
         changeOrigin: true,
       },
       "/smartpresence": {
-        target: "http://minio:9000",
+        target: "http://minio:9090",
         changeOrigin: true,
       },
     },
