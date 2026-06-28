@@ -36,13 +36,30 @@ const PageLoader = () => (
 );
 
 function ProtectedRoute() {
-  const { isAuthenticated } = useAuthStore();
-  if (!isAuthenticated) return <Navigate to="/login" replace />;
-  return <Outlet />;
+  const { isAuthenticated, isCheckingSession } = useAuthStore();
+  
+  if (isCheckingSession) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: 'var(--bg-body)' }}>
+        <div className="spinner"></div>
+      </div>
+    );
+  }
+
+  return isAuthenticated ? <Outlet /> : <Navigate to="/login" replace />;
 }
 
 function RoleProtectedRoute({ allowedRoles }: { allowedRoles: number[] }) {
-  const { user } = useAuthStore();
+  const { user, isCheckingSession } = useAuthStore();
+
+  if (isCheckingSession) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: 'var(--bg-body)' }}>
+        <div className="spinner"></div>
+      </div>
+    );
+  }
+
   const userRoleId = getUserRoleId(user);
   if (!user || userRoleId === undefined || !allowedRoles.includes(userRoleId)) return <Navigate to="/dashboard" replace />;
   return <Outlet />;

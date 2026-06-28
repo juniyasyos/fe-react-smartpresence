@@ -320,6 +320,7 @@ const Login: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [quoteIndex, setQuoteIndex] = useState(() => Math.floor(Math.random() * QUOTES.length));
   const [isFading, setIsFading] = useState(false);
+  const [checkingSSO, setCheckingSSO] = useState(true);
 
   const navigate = useNavigate();
   const auth = useAuthStore();
@@ -330,6 +331,23 @@ const Login: React.FC = () => {
     navigate('/dashboard', { replace: true });
     return null;
   }
+
+  // Handle SSO Redirect
+  useEffect(() => {
+    const checkSSOMode = async () => {
+      try {
+        const data = await authService.getAuthMode();
+        if (data.sso_enabled && data.sso_login_url) {
+          window.location.href = data.sso_login_url;
+        } else {
+          setCheckingSSO(false);
+        }
+      } catch (err) {
+        setCheckingSSO(false);
+      }
+    };
+    checkSSOMode();
+  }, []);
 
   // Rotate quotes every 6 seconds
   useEffect(() => {
@@ -363,6 +381,14 @@ const Login: React.FC = () => {
       setIsLoading(false);
     }
   };
+
+  if (checkingSSO) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: 'var(--bg-body)' }}>
+        <div className="spinner"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="login-container">

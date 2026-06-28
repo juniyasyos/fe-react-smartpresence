@@ -6,6 +6,7 @@ export interface AuthState {
   user: User | null;
   isAuthenticated: boolean;
   isLoading: boolean;
+  isCheckingSession: boolean;
   error: string | null;
 }
 
@@ -45,6 +46,7 @@ export function getInitialAuthState(): AuthState {
     user,
     isAuthenticated: !!token && !!user,
     isLoading: false,
+    isCheckingSession: true,
     error: null,
   };
 }
